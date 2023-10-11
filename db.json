@@ -1,13 +1,22 @@
 {
-    "players": [
-        {
-            "id": 1,
-            "name": "Samuel Muli",
-            "image": "",
-            "height": 174,
-            "weight": 75,
-            "age": 23,
-            "position": "Scrum-Half"
-        }
-    ]
+  "players": [
+    {
+      "id": 1,
+      "name": "Samuel Muli",
+      "image": "",
+      "height": 174,
+      "weight": 75,
+      "age": 23,
+      "position": "Scrum-Half"
+    },
+    {
+      "name": "Arnold Muita",
+      "image": "C:\\fakepath\\IMG_0833.jpg",
+      "height": "168",
+      "weight": "60",
+      "age": "24",
+      "position": "Scrum-half",
+      "id": 2
+    }
+  ]
 }

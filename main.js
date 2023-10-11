@@ -13,22 +13,25 @@ document.addEventListener('DOMContentLoaded', () => {
     const playersSection = document.querySelector('.container')
     const registrationButton = document.querySelector('.registrationBtn')
     const modal = document.querySelector('#registration-modal')
+    const submitButton = document.querySelector('#submit-button')
+    const registrationForm = document.querySelector('.registration-form')
 
     //Fetch data to display player cards
     fetch('http://localhost:3000/players')
     .then(res => res.json())
     .then(data => {
         data.forEach((player) => {
-            playersSection.innerHTML = `
-                <div class="playerCard">
-                    <img src="${player.image}" alt="${player.name}">
-                    <h4> ${player.name} </h4>
-                    <p> Position played: ${player.position} </p>
-                    <p> Height: ${player.height} </p>
-                    <p> Weight: ${player.weight} </p>
-                    <p> Age: ${player.age} </p>
-                </div>
+            const playerCard = document.createElement('div')
+            playerCard.classList.add('playerCard')
+            playerCard.innerHTML = `
+                <img src="${player.image}" alt="${player.name}">
+                <h4> ${player.name} </h4>
+                <p> Position played: ${player.position} </p>
+                <p> Height: ${player.height} </p>
+                <p> Weight: ${player.weight} </p>
+                <p> Age: ${player.age} </p>
             `
+            playersSection.appendChild(playerCard)
         })
     })
     .catch(error => {
@@ -39,4 +42,42 @@ document.addEventListener('DOMContentLoaded', () => {
     registrationButton.addEventListener('click', () => {
         modal.classList.add('open-popup')
     })
+
+    //Add a submit event listener and a POST request to our API
+    registrationForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const name = document.querySelector('#name').value;
+        const image = document.querySelector('#image').value;
+        const height = document.querySelector('#height').value;
+        const weight = document.querySelector('#weight').value;
+        const age = document.querySelector('#age').value;
+        const position = document.querySelector('#position-played').value;
+
+        fetch('http://localhost:3000/players', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                Accept: 'application/json'
+            },
+            body: JSON.stringify({
+                name,
+                image,
+                height,
+                weight,
+                age,
+                position
+            })
+        })
+        .then(res => res.json())
+        .then(res => {
+            if(res.success){
+                return fetch('http://localhost:3000/players');
+            }
+        })
+        .catch(error => {
+            console.log(error.message);
+        });
+    });
+
 })
