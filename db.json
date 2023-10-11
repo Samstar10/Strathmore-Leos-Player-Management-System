@@ -17,6 +17,33 @@
       "age": "24",
       "position": "Scrum-half",
       "id": 2
+    },
+    {
+      "name": "Richard Omedo",
+      "image": "",
+      "height": "180",
+      "weight": "91",
+      "age": "24",
+      "position": "Center",
+      "id": 3
+    },
+    {
+      "name": "Andrew Matoka",
+      "image": "",
+      "height": "182",
+      "weight": "86",
+      "age": "22",
+      "position": "Full-Back",
+      "id": 4
+    },
+    {
+      "name": "Victor Airo",
+      "image": "",
+      "height": "180",
+      "weight": "70",
+      "age": "21",
+      "position": "Winger",
+      "id": 5
     }
   ]
 }

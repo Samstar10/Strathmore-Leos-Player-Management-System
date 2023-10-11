@@ -29,8 +29,11 @@
 .container{
     margin-top: 20px;
     display: flex;
-    justify-content: center;
+    justify-content: left;
     align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 30px;
 }
 
 .playerCard{
@@ -40,6 +43,7 @@
     border-radius: 15px;
     padding: 10px;
     box-shadow: 0 12px 15px black;
+    /* position: relative; */
 }
 
 .registration-modal {
@@ -108,4 +112,22 @@ input[type="submit"]:hover {
 
 .details-p{
     font-weight: 600;
+}
+
+.delete-button{
+    padding: 4px;
+    border-radius: 15px;
+    background: #72afc1;
+    color: white;
+    font-weight: 500;
+    border: 0;
+    box-shadow: 0 2px 5px black;
+    margin-top: 5px;
+    bottom: 8px;
+    left: 8px;
+    /* position: absolute; */
+} 
+
+/* .p-age{
+    margin-bottom: 30px;
 }

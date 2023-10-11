@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <p> Position played: ${player.position} </p>
                 <p> Height: ${player.height} </p>
                 <p> Weight: ${player.weight} </p>
-                <p> Age: ${player.age} </p>
+                <p class="p-age"> Age: ${player.age} </p>
                 <button class="delete-button"> Remove Player </button>
             `
             playersSection.appendChild(playerCard)
