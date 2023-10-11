@@ -11,6 +11,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     const playersSection = document.querySelector('.container')
+    const registrationButton = document.querySelector('.registrationBtn')
 
     fetch('http://localhost:3000/players')
     .then(res => res.json())
