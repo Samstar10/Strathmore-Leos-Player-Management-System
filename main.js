@@ -12,7 +12,9 @@
 document.addEventListener('DOMContentLoaded', () => {
     const playersSection = document.querySelector('.container')
     const registrationButton = document.querySelector('.registrationBtn')
+    const modal = document.querySelector('#registration-modal')
 
+    //Fetch data to display player cards
     fetch('http://localhost:3000/players')
     .then(res => res.json())
     .then(data => {
@@ -31,5 +33,10 @@ document.addEventListener('DOMContentLoaded', () => {
     })
     .catch(error => {
         console.log(error.message)
+    })
+
+    //Add event listener to registration button to display pop up modal
+    registrationButton.addEventListener('click', () => {
+        modal.classList.add('open-popup')
     })
 })
