@@ -15,6 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const modal = document.querySelector('#registration-modal')
     const submitButton = document.querySelector('#submit-button')
     const registrationForm = document.querySelector('.registration-form')
+    const playerCardDiv = document.querySelector('.playerCard')
+    const playerCardModal = document.querySelector('#player-modal')
 
     //Fetch data to display player cards
     fetch('http://localhost:3000/players')
@@ -30,6 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <p> Height: ${player.height} </p>
                 <p> Weight: ${player.weight} </p>
                 <p> Age: ${player.age} </p>
+                <button class="delete-button"> Remove Player </button>
             `
             playersSection.appendChild(playerCard)
         })
@@ -79,5 +82,33 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log(error.message);
         });
     });
+
+    //Click event to show player details pop up modal
+    // playersSection.addEventListener('click', (e) => {
+    //     const clickedElement = e.target.closest('.playerCard')
+
+    //     if(clickedElement){
+    //         const id = clickedElement.dataset.id
+
+    //         fetch(`http://localhost:3000/players/${id}`)
+    //         .then(res => res.json())
+    //         .then(data => {
+    //             const playerModal = document.createElement('div')
+    //             playerModal.classList.add('player-modal-popup')
+    //             playerModal.innerHTML = `
+    //                 <img src="${data.image}" alt="${data.name}">
+    //                 <h4> ${data.name} </h4>
+    //                 <p> Position played: ${data.position} </p>
+    //                 <p> Height: ${data.height} </p>
+    //                 <p> Weight: ${data.weight} </p>
+    //                 <p> Age: ${data.age} </p>
+    //             `
+    //             playerCardModal.appendChild(playerModal)
+    //         })
+    //         .catch(error => {
+    //             console.log(error.message)
+    //         })
+    //     }
+    // })
 
 })
