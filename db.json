@@ -1,5 +1,13 @@
 {
     "players": [
-        {}
+        {
+            "id": 1,
+            "name": "Samuel Muli",
+            "image": "",
+            "height": 174,
+            "weight": 75,
+            "age": 23,
+            "position": "Scrum-Half"
+        }
     ]
 }

@@ -8,3 +8,27 @@
 //Add a click event to the player cards to allow pop up modal to display player details
 //Add Delete button to the player card pop up modal
 //Add a click event to the delete button that fetches data and implements the DELETE method to the db.json
+
+document.addEventListener('DOMContentLoaded', () => {
+    const playersSection = document.querySelector('.container')
+
+    fetch('http://localhost:3000/players')
+    .then(res => res.json())
+    .then(data => {
+        data.forEach((player) => {
+            playersSection.innerHTML = `
+                <div class="playerCard">
+                    <img src="${player.image}" alt="${player.name}">
+                    <h4> ${player.name} </h4>
+                    <p> Position played: ${player.position} </p>
+                    <p> Height: ${player.height} </p>
+                    <p> Weight: ${player.weight} </p>
+                    <p> Age: ${player.age} </p>
+                </div>
+            `
+        })
+    })
+    .catch(error => {
+        console.log(error.message)
+    })
+})
