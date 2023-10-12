@@ -21,6 +21,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const okButton = document.querySelector('.okay-button')
     const deleteModal = document.querySelector('#delete-modal')
     let playerIdToDelete
+    const body = document.querySelector('body')
+    const closeButton = document.querySelector('.close-button')
 
     //Fetch data to display player cards
     fetch('http://localhost:3000/players')
@@ -124,7 +126,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.log(error.message);
             });
         }
-        
+
         reader.readAsDataURL(imageFile)
     });
+
+    playersSection.addEventListener('click', () => {
+        modal.classList.remove('open-popup')
+    })
+
+    closeButton.addEventListener('click', () => {
+        deleteModal.classList.remove('show-warning')
+    })
 })

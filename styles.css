@@ -191,3 +191,9 @@ input[type="submit"]:hover {
     border-radius: 15px;
     object-fit: cover;
 }
+
+.delete-modal-buttons{
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
