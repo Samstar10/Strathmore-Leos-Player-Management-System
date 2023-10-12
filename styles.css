@@ -132,7 +132,7 @@ input[type="submit"]:hover {
     /* position: absolute; */
 } 
 
-#delete-modal{
+.delete-modal{
     width: 400px;
     background: #0a082d;
     border-radius: 15px;

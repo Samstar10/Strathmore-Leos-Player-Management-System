@@ -15,11 +15,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const modal = document.querySelector('#registration-modal')
     const submitButton = document.querySelector('#submit-button')
     const registrationForm = document.querySelector('.registration-form')
-    const playerCardDiv = document.querySelector('.playerCard')
+    //const playerCardDiv = document.querySelector('.playerCard')
     const playerCardModal = document.querySelector('#player-modal')
-    //let deleteButton = ''
+    let deleteButtons = document.querySelectorAll('.delete-button')
     const okButton = document.querySelector('.okay-button')
     const deleteModal = document.querySelector('#delete-modal')
+    let playerIdToDelete
 
     //Fetch data to display player cards
     fetch('http://localhost:3000/players')
@@ -28,6 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
         data.forEach((player) => {
             const playerCard = document.createElement('div')
             playerCard.classList.add('playerCard')
+            playerCard.dataset.id = player.id
             playerCard.innerHTML = `
                 <img src="${player.image}" alt="${player.name}">
                 <h4> ${player.name} </h4>
@@ -38,14 +40,37 @@ document.addEventListener('DOMContentLoaded', () => {
                 <button class="delete-button"> Remove Player </button>
             `
 
-            playersSection.appendChild(playerCard)
-
-            //Add event listener to the delete button to display the delete warning pop up modal
-            let deleteButton = playerCard.querySelector('.delete-button')
-            deleteButton.addEventListener('click', () => {
+            const deleteButton = playerCard.querySelector('.delete-button')
+            deleteButton.addEventListener('click', (e) => {
+                console.log('clicked')
+                playerIdToDelete = player.id
                 deleteModal.classList.add('show-warning')
             })
-            //console.log(typeof(deleteButton))
+
+            playersSection.appendChild(playerCard)
+        })
+
+        okButton.addEventListener('click', () => {
+            fetch(`http://localhost:3000/players/${playerIdToDelete}`, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+            })
+            .then(res => res.json())
+            .then(data => {
+                console.log('Player deleted:', data)
+
+                const playerCard = document.querySelector(`[data-id="${playerIdToDelete}"]`)
+                if(playerCard){
+                    playerCard.remove()
+                }
+
+                deleteModal.classList.remove('show-warning')
+            })
+            .catch(error => {
+                console.log(error.message)
+            })
         })
     })
     .catch(error => {
@@ -95,6 +120,30 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
-    
+    // Adding an event listener to the okay button to remove player from the database
+    // okButton.addEventListener('click', () => {
+    //     const playerId = 
+
+    //     fetch(`http://localhost:3000/players/${playerId}`, {
+    //         method: 'DELETE',
+    //         headers: {
+    //             'Content-Type': 'application/json'
+    //         }
+    //     })
+    //     .then(res => res.json())
+    //     .then(data => {
+    //         console.log('Player deleted:', data)
+
+    //         const playerCard = document.querySelector(`[data-id="${playerId}"]`)
+    //         if(playerCard){
+    //             playerCard.remove()
+    //         }
+
+    //         deleteModal.classList.remove('show-warning')
+    //     })
+    //     .catch(error => {
+    //         console.log(error.message)
+    //     })
+    // })
     
 })

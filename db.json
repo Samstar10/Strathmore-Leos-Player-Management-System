@@ -1,15 +1,6 @@
 {
   "players": [
     {
-      "id": 1,
-      "name": "Samuel Muli",
-      "image": "",
-      "height": 174,
-      "weight": 75,
-      "age": 23,
-      "position": "Scrum-Half"
-    },
-    {
       "name": "Arnold Muita",
       "image": "C:\\fakepath\\IMG_0833.jpg",
       "height": "168",
@@ -28,15 +19,6 @@
       "id": 3
     },
     {
-      "name": "Andrew Matoka",
-      "image": "",
-      "height": "182",
-      "weight": "86",
-      "age": "22",
-      "position": "Full-Back",
-      "id": 4
-    },
-    {
       "name": "Victor Airo",
       "image": "",
       "height": "180",
@@ -44,15 +26,6 @@
       "age": "21",
       "position": "Winger",
       "id": 5
-    },
-    {
-      "name": "Cedric Muuo",
-      "image": "",
-      "height": "178",
-      "weight": "57",
-      "age": "23",
-      "position": "Scrum-half",
-      "id": 6
     }
   ]
 }
