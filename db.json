@@ -44,6 +44,15 @@
       "age": "21",
       "position": "Winger",
       "id": 5
+    },
+    {
+      "name": "Cedric Muuo",
+      "image": "",
+      "height": "178",
+      "weight": "57",
+      "age": "23",
+      "position": "Scrum-half",
+      "id": 6
     }
   ]
 }

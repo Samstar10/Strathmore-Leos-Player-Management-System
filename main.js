@@ -17,6 +17,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const registrationForm = document.querySelector('.registration-form')
     const playerCardDiv = document.querySelector('.playerCard')
     const playerCardModal = document.querySelector('#player-modal')
+    //let deleteButton = ''
+    const okButton = document.querySelector('.okay-button')
+    const deleteModal = document.querySelector('#delete-modal')
 
     //Fetch data to display player cards
     fetch('http://localhost:3000/players')
@@ -34,7 +37,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 <p class="p-age"> Age: ${player.age} </p>
                 <button class="delete-button"> Remove Player </button>
             `
+
             playersSection.appendChild(playerCard)
+
+            //Add event listener to the delete button to display the delete warning pop up modal
+            let deleteButton = playerCard.querySelector('.delete-button')
+            deleteButton.addEventListener('click', () => {
+                deleteModal.classList.add('show-warning')
+            })
+            //console.log(typeof(deleteButton))
         })
     })
     .catch(error => {
@@ -83,32 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    //Click event to show player details pop up modal
-    // playersSection.addEventListener('click', (e) => {
-    //     const clickedElement = e.target.closest('.playerCard')
 
-    //     if(clickedElement){
-    //         const id = clickedElement.dataset.id
-
-    //         fetch(`http://localhost:3000/players/${id}`)
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             const playerModal = document.createElement('div')
-    //             playerModal.classList.add('player-modal-popup')
-    //             playerModal.innerHTML = `
-    //                 <img src="${data.image}" alt="${data.name}">
-    //                 <h4> ${data.name} </h4>
-    //                 <p> Position played: ${data.position} </p>
-    //                 <p> Height: ${data.height} </p>
-    //                 <p> Weight: ${data.weight} </p>
-    //                 <p> Age: ${data.age} </p>
-    //             `
-    //             playerCardModal.appendChild(playerModal)
-    //         })
-    //         .catch(error => {
-    //             console.log(error.message)
-    //         })
-    //     }
-    // })
-
+    
+    
 })
