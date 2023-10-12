@@ -1,14 +1,3 @@
-//So basically this is a web application that allows the strathmore leos management to keep track of their player details and manage their details.
-
-//Add a DOMContentLoaded event to the entire page
-//Fetch data from db.json to display player cards
-//Add click event to the Register New Player Button
-//Fetch data from db.json to allow POST events for registering new players
-//Add submit event to the registration form to allow registration of players
-//Add a click event to the player cards to allow pop up modal to display player details
-//Add Delete button to the player card pop up modal
-//Add a click event to the delete button that fetches data and implements the DELETE method to the db.json
-
 document.addEventListener('DOMContentLoaded', () => {
     const playersSection = document.querySelector('.container')
     const registrationButton = document.querySelector('.registrationBtn')
@@ -41,10 +30,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 <p class="p-age"> Age: ${player.age} </p>
                 <button class="delete-button"> Remove Player </button>
             `
-
+            //Add event listener to delete button to show warning pop up modal
             const deleteButton = playerCard.querySelector('.delete-button')
             deleteButton.addEventListener('click', (e) => {
-                console.log('clicked')
                 playerIdToDelete = player.id
                 deleteModal.classList.add('show-warning')
             })
@@ -52,6 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
             playersSection.appendChild(playerCard)
         })
 
+        //Add event listener to trigger the delete request
         okButton.addEventListener('click', () => {
             fetch(`http://localhost:3000/players/${playerIdToDelete}`, {
                 method: 'DELETE',
@@ -97,6 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const reader = new FileReader()
 
+        //Handle file uploads to read the selected image files
         reader.onload = (e) => {
             const imageBase64 = e.target.result
 
@@ -130,10 +120,12 @@ document.addEventListener('DOMContentLoaded', () => {
         reader.readAsDataURL(imageFile)
     });
 
+    //Add event listener to close registration pop up modal
     playersSection.addEventListener('click', () => {
         modal.classList.remove('open-popup')
     })
 
+    //Add event listener to close warning modal button
     closeButton.addEventListener('click', () => {
         deleteModal.classList.remove('show-warning')
     })
