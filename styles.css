@@ -24,6 +24,11 @@
     cursor: pointer;
     border-radius: 15px;
     font-weight: 500;
+    box-shadow: 0 12px 15px black;
+}
+
+.registrationBtn:hover{
+    background: #16446a;
 }
 
 .container{
@@ -36,8 +41,11 @@
     padding: 30px;
     width: 70%;
     height: 100%;
-    background: #3c5077;
+    background-image: url('./IMG_2539.jpg');
 }
+
+
+
 
 .playerCard{
     background: #16446a;
@@ -131,6 +139,10 @@ input[type="submit"]:hover {
     cursor: pointer;
     /* position: absolute; */
 } 
+
+.delete-button:hover{
+    background: #16446a;
+}
 
 .delete-modal{
     width: 400px;
