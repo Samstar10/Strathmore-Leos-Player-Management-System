@@ -87,63 +87,44 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
 
         const name = document.querySelector('#name').value;
-        const image = document.querySelector('#image').value;
+        const imageFile = document.querySelector('#image').files[0];
         const height = document.querySelector('#height').value;
         const weight = document.querySelector('#weight').value;
         const age = document.querySelector('#age').value;
         const position = document.querySelector('#position-played').value;
 
-        fetch('http://localhost:3000/players', {
+        const reader = new FileReader()
+
+        reader.onload = (e) => {
+            const imageBase64 = e.target.result
+
+            const formData = {
+                name,
+                height,
+                weight,
+                age,
+                position,
+                image: imageBase64
+            }
+            fetch('http://localhost:3000/players', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
                 Accept: 'application/json'
             },
-            body: JSON.stringify({
-                name,
-                image,
-                height,
-                weight,
-                age,
-                position
+            body: JSON.stringify(formData)
             })
-        })
-        .then(res => res.json())
-        .then(res => {
-            if(res.success){
-                return fetch('http://localhost:3000/players');
-            }
-        })
-        .catch(error => {
-            console.log(error.message);
-        });
+            .then(res => res.json())
+            .then(res => {
+                if(res.success){
+                    return fetch('http://localhost:3000/players');
+                }
+            })
+            .catch(error => {
+                console.log(error.message);
+            });
+        }
+        
+        reader.readAsDataURL(imageFile)
     });
-
-
-    // Adding an event listener to the okay button to remove player from the database
-    // okButton.addEventListener('click', () => {
-    //     const playerId = 
-
-    //     fetch(`http://localhost:3000/players/${playerId}`, {
-    //         method: 'DELETE',
-    //         headers: {
-    //             'Content-Type': 'application/json'
-    //         }
-    //     })
-    //     .then(res => res.json())
-    //     .then(data => {
-    //         console.log('Player deleted:', data)
-
-    //         const playerCard = document.querySelector(`[data-id="${playerId}"]`)
-    //         if(playerCard){
-    //             playerCard.remove()
-    //         }
-
-    //         deleteModal.classList.remove('show-warning')
-    //     })
-    //     .catch(error => {
-    //         console.log(error.message)
-    //     })
-    // })
-    
 })
