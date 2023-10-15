@@ -197,3 +197,179 @@ input[type="submit"]:hover {
     justify-content: space-between;
     gap: 10px;
 }
+
+@media screen and (max-width: 576px) {
+    html, body{
+        overflow-x: hidden;
+    }
+    body{
+        position: relative;
+    }
+    .navBar{
+        padding: 5px;
+    }
+    .registrationBtn{
+        padding: 5px;
+        font-size: 10px;
+    }
+    .container{
+        margin: 10px auto;
+        gap: 5px;
+        padding: 10px;
+        width: 90%;
+        display: block;
+    }
+    .playerCard{
+        margin: 5px auto;
+        padding: 4px;
+        font-size: 10px;
+        width: 100%;
+    }
+    h1{
+        font-size: 18px;
+    }
+    .registration-modal {
+        max-width: 90%;
+        margin: 20px auto;
+        padding: 20px;
+        font-size: 10px;
+    }
+    .registration-form {
+        grid-gap: 5px;
+        text-align: center;
+    }
+    label{
+        display: block;
+        text-align: left;
+        font-size: 10px;
+    }
+    input{
+        width: calc(100% - 16px);
+        margin-top: 0;
+        font-size: 10;
+    }
+    input[type="file"]{
+        margin-bottom: 10px;
+    }
+    input[type="submit"]{
+        padding: 8px 16px;
+        font-size: 10px;
+    }
+    .delete-button{
+        padding: 3px 8px;
+        font-size: 10px;
+    }
+    .delete-modal{
+        width: 90%;
+        max-width: 100%;
+        margin: 20px auto;
+        padding: 15px;
+        font-size: 10px;
+    }
+    #delete-modal h2{
+        font-size: 20px;
+        margin: 20px 0 10px;
+    }
+    #delete-modal button{
+        width: 80%;
+        font-size: 14px;
+        margin: 10px auto;
+    }
+    .playerCard img{
+        height: 40vh;
+    }
+    .delete-modal-buttons{
+        flex-direction: column;
+        gap: 2px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    html, body{
+        overflow-x: hidden;
+    }
+    body{
+        position: relative;
+    }
+    .navBar {
+        padding: 20px 10px;
+    }
+
+    .registrationBtn {
+        padding: 8px 15px;
+        font-size: 14px;
+    }
+
+    .container {
+        width: 80%;
+    }
+
+    .playerCard {
+        width: 45%;
+    }
+
+    .registration-modal,
+    .delete-modal {
+        max-width: 90%;
+        padding: 15px; 
+    }
+
+    #delete-modal h2 {
+        font-size: 28px;
+    }
+
+    #delete-modal button {
+        width: 70%;
+        font-size: 16px;
+        margin-top: 20px; 
+    }
+
+    .playerCard img {
+        height: 40vh;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    html, body{
+        overflow-x: hidden;
+    }
+    body{
+        position: relative;
+    }
+    .navBar {
+        padding: 20px 10px;
+    }
+
+    .registrationBtn {
+        padding: 8px 15px;
+        font-size: 14px;
+    }
+
+    .container {
+        width: 80%;
+    }
+
+    .playerCard {
+        width: 45%;
+    }
+
+    .registration-modal,
+    .delete-modal {
+        max-width: 90%;
+        padding: 15px; 
+    }
+
+    #delete-modal h2 {
+        font-size: 28px;
+    }
+
+    #delete-modal button {
+        width: 70%;
+        font-size: 16px;
+        margin-top: 20px; 
+    }
+
+    .playerCard img {
+        height: 50vh;
+    }
+}
