@@ -1,4 +1,4 @@
-# Strathmore Leps Player Management System
+# Strathmore Leos Player Management System
 #### Author: Samuel Muli
 
 The Strathmore Leos Player Management System is a web application designed to help manage player information for the Strathmore Leos rugby team. It allows the management team to register new players, view player details and also remove players from the system.
